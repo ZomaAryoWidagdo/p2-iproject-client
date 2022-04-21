@@ -19,7 +19,7 @@ export default {
     const currentSong = localStorage.getItem("song");
     this.name = currentArtist.toUpperCase();
     this.title = currentSong.toUpperCase();
-    this.searchByTitle(currentArtist, currentSong);
+    this.searchByTitle(currentSong, currentArtist);
   },
 };
 </script>

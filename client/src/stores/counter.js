@@ -7,6 +7,8 @@ export const useGlobalStore = defineStore({
     charts: [],
     artist: [],
     lyrics: [],
+    donateInfo: [],
+    thisFalse: true,
   }),
   getters: {},
   actions: {
@@ -32,7 +34,7 @@ export const useGlobalStore = defineStore({
       }
     },
 
-    async searchByTitle(artist, title) {
+    async searchByTitle(title, artist) {
       try {
         const { data } = await axios.get(
           `http://localhost:3001/Song/${artist}/${title}`
@@ -42,6 +44,10 @@ export const useGlobalStore = defineStore({
       } catch (error) {
         console.log(error);
       }
+    },
+
+    makeFalse() {
+      this.thisFalse = false;
     },
   },
 });

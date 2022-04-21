@@ -9,15 +9,22 @@ export default {
     };
   },
   components: { ArtistTable },
-  methods: { ...mapActions(useGlobalStore, ["searchByArtist"]) },
+  methods: { ...mapActions(useGlobalStore, ["searchByArtist", "makeFalse"]) },
   computed: {
     ...mapState(useGlobalStore, ["artist"]),
   },
   created() {
+    let currentArtist = "";
+
     localStorage.removeItem("song");
-    const currentArtist = localStorage.getItem("artist");
-    this.searchByArtist(currentArtist);
-    this.name = currentArtist.toUpperCase();
+    this.makeFalse();
+    setTimeout(() => {
+      currentArtist = localStorage.getItem("artist");
+      this.name = currentArtist.toUpperCase();
+    }, 500);
+    setTimeout(() => {
+      this.searchByArtist(currentArtist);
+    }, 1000);
   },
 };
 </script>
