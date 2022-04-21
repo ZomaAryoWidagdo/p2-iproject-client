@@ -1,5 +1,6 @@
 <script>
 import DonationForm from "./DonationForm.vue";
+
 export default {
   components: { DonationForm },
   methods: {},

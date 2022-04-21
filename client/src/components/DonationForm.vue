@@ -2,6 +2,8 @@
 import { mapActions } from "pinia";
 import { useGlobalStore } from "../stores/counter";
 import axios from "axios";
+// const url = "http://localhost:3001/"
+const url = "https://ichill.herokuapp.com/";
 export default {
   data() {
     return {
@@ -13,7 +15,7 @@ export default {
     ...mapActions(useGlobalStore, ["donation"]),
     async donate() {
       try {
-        const { data } = await axios.post(`http://localhost:3001/donation`, {
+        const { data } = await axios.post(`${url}donation`, {
           email: this.email,
           amount: this.amount,
         });
